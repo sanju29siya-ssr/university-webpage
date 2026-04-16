@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: university-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: university
+  template:
+    metadata:
+      labels:
+        app: university
+    spec:
+      containers:
+      - name: university-container
+        image: university-app
+        ports:
+        - containerPort: 85
